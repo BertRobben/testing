@@ -2,20 +2,14 @@ package bert.test;
 
 import bert.service.CompositeService;
 import bert.service.PositiveService;
-import bert.spring.BertApplicationContextLoader;
 import com.typesafe.config.Config;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Service;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = InjectedServiceTest.AlwaysPositiveService.class, locations = "test-application-2.conf", loader = BertApplicationContextLoader.class)
+@BertJUnitConfig(classes = InjectedServiceTest.AlwaysPositiveService.class, locations = "test-application-2.conf")
 public class InjectedServiceTest {
 
     @Autowired

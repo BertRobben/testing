@@ -1,19 +1,15 @@
 package bert.test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import bert.service.CompositeService;
 import bert.service.EvenService;
-import bert.spring.BertApplicationContextLoader;
 import com.typesafe.config.Config;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(locations = "test-application-1.conf", loader = BertApplicationContextLoader.class)
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+@BertJUnitConfig(locations = "test-application-1.conf")
 public class EvenServiceTest {
 
     @Autowired
@@ -24,8 +20,8 @@ public class EvenServiceTest {
 
     @Test
     public void shouldTestEven() {
-        assertEquals(true, service.isEven(6));
-        assertEquals(false, service.isEven(3));
+        assertTrue(service.isEven(6));
+        assertFalse(service.isEven(3));
     }
 
     @Test

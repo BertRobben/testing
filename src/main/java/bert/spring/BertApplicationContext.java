@@ -4,8 +4,6 @@ import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.util.stream.Collectors;
-
 public class BertApplicationContext extends AnnotationConfigApplicationContext {
 
     private final Config config;
@@ -18,7 +16,7 @@ public class BertApplicationContext extends AnnotationConfigApplicationContext {
     }
 
     private void addComponents() {
-        register(config.getStringList("components").stream().map(this::forName).collect(Collectors.toList()).toArray(new Class<?>[0]));
+        register(config.getStringList("components").stream().map(this::forName).toList().toArray(new Class<?>[0]));
     }
 
     private Class<?> forName(String className) {
