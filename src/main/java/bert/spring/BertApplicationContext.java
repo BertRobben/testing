@@ -1,16 +1,14 @@
 package bert.spring;
 
 import com.typesafe.config.Config;
-import com.typesafe.config.ConfigFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class BertApplicationContext extends AnnotationConfigApplicationContext {
 
     private final Config config;
 
-    public BertApplicationContext(String configLocation) {
-        System.out.println(">>> Initializing BertApplicationContext based on " + configLocation);
-        this.config = ConfigFactory.load(configLocation);
+    public BertApplicationContext(Config config) {
+        this.config = config;
         addComponents();
         registerBean(Config.class.getName(), Config.class, () -> config);
     }
@@ -26,4 +24,5 @@ public class BertApplicationContext extends AnnotationConfigApplicationContext {
             throw new RuntimeException(e);
         }
     }
+
 }

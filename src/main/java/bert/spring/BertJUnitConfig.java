@@ -1,6 +1,5 @@
-package bert.test;
+package bert.spring;
 
-import bert.spring.BertApplicationContextLoader;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.core.annotation.AliasFor;
@@ -38,6 +37,8 @@ public @interface BertJUnitConfig {
 
     @AliasFor(annotation = ContextConfiguration.class)
     Class<? extends ApplicationContextInitializer<?>>[] initializers() default {};
+
+    Class<? extends ConfigInitializer>[] configInitializers() default {};
 
     @AliasFor(annotation = ContextConfiguration.class)
     boolean inheritLocations() default true;

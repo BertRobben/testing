@@ -1,6 +1,7 @@
 package bert.test;
 
 import bert.service.CompositeService;
+import bert.spring.BertJUnitConfig;
 import com.typesafe.config.Config;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
