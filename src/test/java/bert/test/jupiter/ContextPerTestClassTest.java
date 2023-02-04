@@ -1,17 +1,20 @@
-package bert.test;
+package bert.test.jupiter;
 
+import bert.jupiter.BertApplicationContextExtension;
 import bert.service.EvenService;
-import bert.spring.BertJUnitConfig;
 import com.typesafe.config.Config;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@BertJUnitConfig(locations = "test-application-1.conf")
-public class EvenServiceTest {
+public class ContextPerTestClassTest {
+
+    @RegisterExtension
+    private static BertApplicationContextExtension extension = new BertApplicationContextExtension();
 
     @Autowired
     private EvenService service;

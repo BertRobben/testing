@@ -1,4 +1,4 @@
-package bert.test;
+package bert.test.spring;
 
 import bert.service.CompositeService;
 import bert.spring.BertJUnitConfig;

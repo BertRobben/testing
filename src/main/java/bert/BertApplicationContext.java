@@ -1,4 +1,4 @@
-package bert.spring;
+package bert;
 
 import com.typesafe.config.Config;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

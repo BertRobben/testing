@@ -1,4 +1,4 @@
-package bert.test;
+package bert.test.spring;
 
 import bert.spring.BertJUnitConfig;
 import bert.spring.ConfigInitializer;
